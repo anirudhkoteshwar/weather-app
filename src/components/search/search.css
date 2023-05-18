@@ -1,0 +1,27 @@
+.searchBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    width: 80%;
+    height: 20%;
+    padding: 10px;
+}
+
+.searchIcon img {
+    width: 75%;
+    height: 100%;
+}
+
+.searchIcon {
+    display: grid;
+    place-items: center;
+    width: 5%;
+    height: 100%;
+}
+
+#citySearch {
+    width: 50%;
+    height: 50%;
+}

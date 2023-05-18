@@ -5,7 +5,9 @@ function App() {
 
   return (
     <div className='panelWrapper'>
-      <div className='leftPanel'></div>
+      <div className='leftPanel'>
+        hi
+      </div>
       <div className='rightPanel'>
         <Search />
       </div>
