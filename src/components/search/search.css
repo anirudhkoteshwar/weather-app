@@ -1,12 +1,14 @@
 .searchBar {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     background-color: #ffffff;
-    width: 80%;
-    height: 20%;
-    padding: 10px;
+    width: 50%;
+    height: 6%;
+    min-height: 50px;
+    padding: 2px 16px;
+    border-radius: 30px;
 }
 
 .searchIcon img {
@@ -17,11 +19,20 @@
 .searchIcon {
     display: grid;
     place-items: center;
-    width: 5%;
+    width: 10%;
     height: 100%;
 }
 
-#citySearch {
-    width: 50%;
-    height: 50%;
+.searchBar input {
+    font-size: 20px;
+    width: 90%;
+    height: 100%;
+    border: 0;
+    margin: 0;
+    border-radius: 30px;
+}
+
+.searchBar input:focus {
+    border: 0;
+    outline: none;
 }

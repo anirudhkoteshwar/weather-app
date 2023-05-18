@@ -1,9 +1,17 @@
-.body {
-  width: 100vw;
-  height: 100vh;
+html, body {
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
 }
 
 #root {
   width: 100vw;
   height: 100vh;
+  
+}
+
+:root {
+  overflow: hidden;
+  background-color: #0034f1;
 }
