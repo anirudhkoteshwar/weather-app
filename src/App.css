@@ -6,12 +6,12 @@
 }
 
 .leftPanel {
-  width: 40%;
+  width: 55%;
 }
 
 .rightPanel {
   display: flex;
-  width: 60%;
+  width: 45%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
