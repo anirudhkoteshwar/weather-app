@@ -1,6 +1,6 @@
 import searchIcon from "/icons/searchIcon.svg";
 import "./search.css";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { GEODB_OPTIONS, GEODB_URL } from "../APIs/geodb";
 import React from "react";
 
@@ -16,20 +16,18 @@ function Search() {
       );
       const responseJSON = await response.json();
       console.log(responseJSON);
-      setLocation(formatData(responseJSON));
-      console.log(location);
+      const formattedData = formatData(responseJSON);
+      setLocation(formattedData);
     } catch (error) {
       console.error("Error:", error);
     }
   };
 
   const formatData = (obj) => {
-    obj.data.map((city) => {
-      return {
-        value: `${city.latitude} ${city.longitude}`,
-        label: `${city.name}, ${city.countryCode}`,
-      };
-    });
+    return obj.data.map((city) => ({
+      value: `${city.latitude} ${city.longitude}`,
+      label: `${city.name}, ${city.countryCode}`,
+    }));
   };
 
   const debounce = (func) => {
@@ -45,6 +43,10 @@ function Search() {
   };
 
   const optimizedSearch = useCallback(debounce(getCities), []);
+
+  useEffect(() => {
+    console.log(location);
+  }, [location]);
 
   const handleOnChange = (searchData) => {
     setSearchValue(searchData);
