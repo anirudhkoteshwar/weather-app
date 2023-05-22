@@ -6,6 +6,7 @@ import React from "react";
 
 function Search() {
   const [searchValue, setSearchValue] = useState("");
+  const [location, setLocation] = useState({});
 
   const getCities = async (inputValue) => {
     try {
@@ -13,11 +14,22 @@ function Search() {
         `${GEODB_URL}?namePrefix=${inputValue}`,
         GEODB_OPTIONS
       );
-      const data = await response.json();
-      console.log(data);
+      const responseJSON = await response.json();
+      console.log(responseJSON);
+      setLocation(formatData(responseJSON));
+      console.log(location);
     } catch (error) {
       console.error("Error:", error);
     }
+  };
+
+  const formatData = (obj) => {
+    obj.data.map((city) => {
+      return {
+        value: `${city.latitude} ${city.longitude}`,
+        label: `${city.name}, ${city.countryCode}`,
+      };
+    });
   };
 
   const debounce = (func) => {

@@ -2,7 +2,6 @@ import "./App.css";
 import Search from "./components/search/search";
 
 function App() {
-
   // const handleSearchChange = (searchData) => {
   //   const [lat, lon] = searchData.value.split(" ");
   // }
