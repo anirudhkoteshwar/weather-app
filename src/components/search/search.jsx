@@ -67,11 +67,15 @@ function Search() {
           <img src={searchIcon} alt="Search Icon" />
         </div>
       </div>
-      <div className="dataResults">
-        {location.map((value,key) => {
-            return <a key={key}>{value.label}</a>;
-        })}
-      </div>
+      {location.length > 0 && (
+        <div className="dataResults">
+          {location.slice(0, 6).map((value, key) => (
+            <a key={key} className="dataItem" id={`location-${key}`}>
+              <p>{value.label}</p>
+            </a>
+          ))}
+        </div>
+      )}
     </>
   );
 }
