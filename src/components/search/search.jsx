@@ -6,7 +6,7 @@ import React from "react";
 
 function Search() {
   const [searchValue, setSearchValue] = useState("");
-  const [location, setLocation] = useState({});
+  const [location, setLocation] = useState([]);
 
   const getCities = async (inputValue) => {
     try {
@@ -67,7 +67,11 @@ function Search() {
           <img src={searchIcon} alt="Search Icon" />
         </div>
       </div>
-      <div className="dataResults"></div>
+      <div className="dataResults">
+        {location.map((value,key) => {
+            return <a key={key}>{value.label}</a>;
+        })}
+      </div>
     </>
   );
 }
