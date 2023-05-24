@@ -1,6 +1,6 @@
 import searchIcon from "/icons/searchIcon.svg";
 import "./search.css";
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback } from "react";
 import { GEODB_OPTIONS, GEODB_URL } from "../APIs/geodb";
 import React from "react";
 
@@ -55,12 +55,12 @@ function Search({ onSearchChange }) {
     onSearchChange([selectedCity]);
   };
 
-  useEffect(() => {
-    console.log(location);
-    if (location.length > 0) {
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
       onSearchChange(location);
     }
-  }, [location, onSearchChange]);
+  };
 
   return (
     <>
@@ -71,6 +71,7 @@ function Search({ onSearchChange }) {
           id="citySearch"
           value={searchValue}
           onChange={(e) => handleOnChange(e.target.value)}
+          onKeyDown={handleKeyDown}
         />
         <div className="searchIcon">
           <img src={searchIcon} alt="Search Icon" />
