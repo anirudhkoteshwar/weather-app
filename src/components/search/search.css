@@ -41,7 +41,7 @@
   border-radius: 30px;
   background: rgba(0, 0, 0, 0);
   font-weight: 600;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .searchBar input:focus {
@@ -61,5 +61,15 @@
   width: 50%;
   color: #ffffff;
   font-weight: 600;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+.dataItem p {
+  transition: all 300ms ease;
+}
+
+.dataItem p:hover {
+  font-weight: 600;
+  text-shadow: 0 0 10px #ffffff;
+  transition: all 300ms ease;
 }

@@ -49,12 +49,18 @@ function Search({ onSearchChange }) {
     optimizedSearch(searchData);
   };
 
+  const handleAutocomplete = (selectedCity) => {
+    setSearchValue(selectedCity.label);
+    setLocation([]);
+    onSearchChange([selectedCity]);
+  };
+
   useEffect(() => {
     console.log(location);
     if (location.length > 0) {
       onSearchChange(location);
     }
-  }, [location , onSearchChange]);
+  }, [location, onSearchChange]);
 
   return (
     <>
@@ -73,7 +79,12 @@ function Search({ onSearchChange }) {
       {location.length > 0 && (
         <div className="dataResults">
           {location.slice(0, 5).map((value, key) => (
-            <a key={key} className="dataItem" id={`location-${key}`}>
+            <a
+              key={key}
+              className="dataItem"
+              id={`location-${key}`}
+              onClick={() => handleAutocomplete(value)}
+            >
               <p>{value.label}</p>
             </a>
           ))}
