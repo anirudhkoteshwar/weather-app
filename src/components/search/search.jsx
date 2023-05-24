@@ -7,7 +7,6 @@ import React from "react";
 function Search({ onSearchChange }) {
   const [searchValue, setSearchValue] = useState("");
   const [location, setLocation] = useState([]);
-  const [isThrottled, setIsThrottled] = useState(false);
 
   const getCities = async (inputValue) => {
     try {
@@ -45,10 +44,6 @@ function Search({ onSearchChange }) {
 
   const optimizedSearch = useCallback(debounce(getCities), []);
 
-  useEffect(() => {
-    console.log(location);
-  }, [location]);
-
   const handleOnChange = (searchData) => {
     setSearchValue(searchData);
     optimizedSearch(searchData);
@@ -59,7 +54,7 @@ function Search({ onSearchChange }) {
     if (location.length > 0) {
       onSearchChange(location);
     }
-  }, [location, onSearchChange]);
+  }, [location , onSearchChange]);
 
   return (
     <>
@@ -77,7 +72,7 @@ function Search({ onSearchChange }) {
       </div>
       {location.length > 0 && (
         <div className="dataResults">
-          {location.slice(0, 6).map((value, key) => (
+          {location.slice(0, 5).map((value, key) => (
             <a key={key} className="dataItem" id={`location-${key}`}>
               <p>{value.label}</p>
             </a>
