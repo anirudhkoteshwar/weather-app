@@ -4,9 +4,10 @@ import { useState, useCallback, useEffect } from "react";
 import { GEODB_OPTIONS, GEODB_URL } from "../APIs/geodb";
 import React from "react";
 
-function Search() {
+function Search({ onSearchChange }) {
   const [searchValue, setSearchValue] = useState("");
   const [location, setLocation] = useState([]);
+  const [isThrottled, setIsThrottled] = useState(false);
 
   const getCities = async (inputValue) => {
     try {
@@ -52,6 +53,13 @@ function Search() {
     setSearchValue(searchData);
     optimizedSearch(searchData);
   };
+
+  useEffect(() => {
+    console.log(location);
+    if (location.length > 0) {
+      onSearchChange(location);
+    }
+  }, [location, onSearchChange]);
 
   return (
     <>
