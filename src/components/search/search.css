@@ -21,6 +21,8 @@
   height: 100%;
   filter: invert(95%) sepia(0%) saturate(20%) hue-rotate(313deg)
     brightness(103%) contrast(107%);
+    opacity: 1;
+  transition: opacity 300ms ease;
 }
 
 .searchIcon {
@@ -72,4 +74,9 @@
   font-weight: 600;
   text-shadow: 0 0 10px #ffffff;
   transition: all 300ms ease;
+}
+
+#clearButton {
+  cursor: pointer;
+  transition: opacity 300ms ease;
 }

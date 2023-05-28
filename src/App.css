@@ -6,13 +6,15 @@
 }
 
 .leftPanel {
-  width: 55%;
+  width: 0%;
+  transition: width 300ms ease;
 }
 
 .rightPanel {
   display: flex;
-  width: 45%;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transition: width 300ms ease;
 }

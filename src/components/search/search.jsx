@@ -1,10 +1,10 @@
 import searchIcon from "/icons/searchIcon.svg";
+import closeIcon from "/icons/closeIcon.svg";
 import "./search.css";
 import { useState, useCallback } from "react";
 import { GEODB_OPTIONS, GEODB_URL } from "../APIs/geodb";
-import React from "react";
 
-function Search({ onSearchChange }) {
+function Search({ onSearchChange, setPanelWidth }) {
   const [searchValue, setSearchValue] = useState("");
   const [location, setLocation] = useState([]);
 
@@ -17,6 +17,7 @@ function Search({ onSearchChange }) {
       const responseJSON = await response.json();
       console.log(responseJSON);
       const formattedData = formatData(responseJSON);
+      setLocation([]);
       setLocation(formattedData);
     } catch (error) {
       console.error("Error:", error);
@@ -38,7 +39,7 @@ function Search({ onSearchChange }) {
       timer = setTimeout(() => {
         timer = null;
         func.apply(context, args);
-      }, 600);
+      }, 800);
     };
   };
 
@@ -59,7 +60,13 @@ function Search({ onSearchChange }) {
     if (event.key === "Enter") {
       event.preventDefault();
       onSearchChange(location);
+      setPanelWidth(60);
     }
+  };
+
+  const handleClearInput = () => {
+    setSearchValue("");
+    optimizedSearch("");
   };
 
   return (
@@ -74,7 +81,7 @@ function Search({ onSearchChange }) {
           onKeyDown={handleKeyDown}
         />
         <div className="searchIcon">
-          <img src={searchIcon} alt="Search Icon" />
+          {location.length === 0 ?  <img src={searchIcon} alt="Search Icon" /> : <img src={closeIcon} alt="Close Icon" id="CloseButton" onClick={handleClearInput}/> }
         </div>
       </div>
       {location.length > 0 && (

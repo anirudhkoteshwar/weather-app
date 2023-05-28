@@ -10,6 +10,7 @@ function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
   const [selectedCity, setSelectedCity] = useState(null);
+  const [panelWidth, setPanelWidth] = useState(0);
 
   const handleOnSearchChange = (searchData) => {
     const city = searchData[0];
@@ -52,9 +53,13 @@ function App() {
 
   return (
     <div className="panelWrapper">
-      <div className="leftPanel"></div>
-      <div className="rightPanel">
-        <Search onSearchChange={handleOnSearchChange} />
+      <div className="leftPanel" style={
+        {width: `${panelWidth}%`}
+      }></div>
+      <div className="rightPanel" style={
+        {width: `${100 - panelWidth}%`}
+      }>
+        <Search onSearchChange={handleOnSearchChange} setPanelWidth={setPanelWidth} />
       </div>
     </div>
   );
