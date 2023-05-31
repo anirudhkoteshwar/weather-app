@@ -40,7 +40,7 @@ function Search({ onSearchChange, setPanelWidth }) {
       timer = setTimeout(() => {
         timer = null;
         func.apply(context, args);
-      }, 600);
+      }, 500);
     };
   };
 
@@ -55,20 +55,27 @@ function Search({ onSearchChange, setPanelWidth }) {
     setSearchValue(selectedCity.label);
     setLocation([]);
     onSearchChange([selectedCity]);
+    if (location.length > 0) {
     setPanelWidth(60);
     setSearchbarWidth(80);
+    }
   };
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
       onSearchChange(location);
+      if (location.length > 0) {
       setPanelWidth(60);
       setSearchbarWidth(80);
+      }
     }
   };
 
   const handleClearInput = () => {
+    if (location.length === 0) {
+      return; 
+    }
     setSearchValue("");
     optimizedSearch("");
     setLocation([]);
@@ -76,7 +83,7 @@ function Search({ onSearchChange, setPanelWidth }) {
 
   return (
     <>
-      <div className="searchBar" style={{ width: `${searchbarWidth}%` }}>
+      <div className={`searchBar ${(searchbarWidth != 50) && 'triggered' }`} style={{ width: `${searchbarWidth}%` }}>
         <input
           type="text"
           placeholder="Enter City Name"
@@ -98,8 +105,8 @@ function Search({ onSearchChange, setPanelWidth }) {
           )}
         </div>
       </div>
-      {location.length > 0 && (
-        <div className="dataResults" style={{ width: `${searchbarWidth}%` }}>
+      {location.length > 0 && searchValue !== "" && (
+        <div className={`dataResults ${(searchbarWidth != 50) && 'triggered' }`}style={{ width: `${searchbarWidth}%` }}>
           {location.slice(0, 5).map((value, key) => (
             <a
               key={key}

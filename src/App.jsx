@@ -1,5 +1,7 @@
 import "./App.css";
 import Search from "./components/search/search";
+import CurrentWeather from "./components/currentWeather/currentWeather";
+import CurrentWeatherDetails from "./components/currentWeather/currentWeatherDetails";
 import { useState , useEffect } from "react";
 import {
   WEATHER_API_URL,
@@ -55,11 +57,14 @@ function App() {
     <div className="panelWrapper">
       <div className="leftPanel" style={
         {width: `${panelWidth}%`}
-      }></div>
+      }>
+        {currentWeather && <CurrentWeather currentWeather={currentWeather}/>}
+      </div>
       <div className="rightPanel" style={
         {width: `${100 - panelWidth}%`}
       }>
         <Search onSearchChange={handleOnSearchChange} setPanelWidth={setPanelWidth} />
+        {currentWeather && <CurrentWeatherDetails currentWeather={currentWeather}/>}
       </div>
     </div>
   );

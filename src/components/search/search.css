@@ -96,3 +96,12 @@
   cursor: pointer;
   transition: opacity 300ms ease;
 }
+
+.searchBar.triggered {
+  position: absolute;
+  top: 1.8rem;
+}
+.dataResults.triggered {
+  position: absolute;
+  top: 5rem;
+}
