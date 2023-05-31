@@ -7,6 +7,7 @@ import { GEODB_OPTIONS, GEODB_URL } from "../APIs/geodb";
 function Search({ onSearchChange, setPanelWidth }) {
   const [searchValue, setSearchValue] = useState("");
   const [location, setLocation] = useState([]);
+  const [searchbarWidth, setSearchbarWidth] = useState(50);
 
   const getCities = async (inputValue) => {
     try {
@@ -39,7 +40,7 @@ function Search({ onSearchChange, setPanelWidth }) {
       timer = setTimeout(() => {
         timer = null;
         func.apply(context, args);
-      }, 800);
+      }, 600);
     };
   };
 
@@ -54,6 +55,8 @@ function Search({ onSearchChange, setPanelWidth }) {
     setSearchValue(selectedCity.label);
     setLocation([]);
     onSearchChange([selectedCity]);
+    setPanelWidth(60);
+    setSearchbarWidth(80);
   };
 
   const handleKeyDown = (event) => {
@@ -61,17 +64,19 @@ function Search({ onSearchChange, setPanelWidth }) {
       event.preventDefault();
       onSearchChange(location);
       setPanelWidth(60);
+      setSearchbarWidth(80);
     }
   };
 
   const handleClearInput = () => {
     setSearchValue("");
     optimizedSearch("");
+    setLocation([]);
   };
 
   return (
     <>
-      <div className="searchBar">
+      <div className="searchBar" style={{ width: `${searchbarWidth}%` }}>
         <input
           type="text"
           placeholder="Enter City Name"
@@ -81,11 +86,20 @@ function Search({ onSearchChange, setPanelWidth }) {
           onKeyDown={handleKeyDown}
         />
         <div className="searchIcon">
-          {location.length === 0 ?  <img src={searchIcon} alt="Search Icon" /> : <img src={closeIcon} alt="Close Icon" id="CloseButton" onClick={handleClearInput}/> }
+          {location.length === 0 ? (
+            <img src={searchIcon} alt="Search Icon" />
+          ) : (
+            <img
+              src={closeIcon}
+              alt="Close Icon"
+              id="CloseButton"
+              onClick={handleClearInput}
+            />
+          )}
         </div>
       </div>
       {location.length > 0 && (
-        <div className="dataResults">
+        <div className="dataResults" style={{ width: `${searchbarWidth}%` }}>
           {location.slice(0, 5).map((value, key) => (
             <a
               key={key}

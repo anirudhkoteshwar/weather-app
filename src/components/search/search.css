@@ -9,11 +9,12 @@
   min-height: 50px;
   padding: 2px 16px;
   border-radius: 30px;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.1);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(13.5px);
   -webkit-backdrop-filter: blur(13.5px);
   border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: width 400ms ease;
 }
 
 .searchIcon img {
@@ -28,12 +29,12 @@
 .searchIcon {
   display: grid;
   place-items: center;
-  width: 10%;
+  width: 2.8em;
   height: 100%;
 }
 
 .searchBar input {
-  font-size: 20px;
+  font-size: 1.3rem;
   font-weight: 400;
   color: #ffffff;
   width: 90%;
@@ -51,9 +52,19 @@
   outline: none;
 }
 
+@keyframes animateFadeIn {
+  0% {
+     opacity: 0;
+  }
+ 
+  100% {
+     opacity: 1;
+  }
+ }
+
 .dataResults {
   border-radius: 30px;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.1);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(13.5px);
   -webkit-backdrop-filter: blur(13.5px);
@@ -64,6 +75,11 @@
   color: #ffffff;
   font-weight: 600;
   font-family: "Roboto", sans-serif;
+  animation: animateFadeIn 400ms;
+}
+
+.dataItem {
+  animation: animateFadeIn 400ms;
 }
 
 .dataItem p {
