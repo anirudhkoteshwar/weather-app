@@ -23,3 +23,11 @@
   -webkit-backdrop-filter: blur(13.5px);
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
+
+.rightPanel>.details,.rightPanel>.forecastWeather {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 20px;
+}

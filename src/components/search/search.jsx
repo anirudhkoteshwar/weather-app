@@ -56,8 +56,8 @@ function Search({ onSearchChange, setPanelWidth }) {
     setLocation([]);
     onSearchChange([selectedCity]);
     if (location.length > 0) {
-    setPanelWidth(60);
-    setSearchbarWidth(80);
+      setPanelWidth(60);
+      setSearchbarWidth(80);
     }
   };
 
@@ -66,24 +66,31 @@ function Search({ onSearchChange, setPanelWidth }) {
       event.preventDefault();
       onSearchChange(location);
       if (location.length > 0) {
-      setPanelWidth(60);
-      setSearchbarWidth(80);
+        setPanelWidth(60);
+        setSearchbarWidth(80);
       }
     }
   };
 
   const handleClearInput = () => {
     if (location.length === 0) {
-      return; 
+      return;
     }
     setSearchValue("");
     optimizedSearch("");
     setLocation([]);
   };
 
+  const handleBlur = () => {
+    setLocation([]);
+  };
+
   return (
     <>
-      <div className={`searchBar ${(searchbarWidth != 50) && 'triggered' }`} style={{ width: `${searchbarWidth}%` }}>
+      <div
+        className={`searchBar ${searchbarWidth != 50 && "triggered"}`}
+        style={{ width: `${searchbarWidth}%` }}
+      >
         <input
           type="text"
           placeholder="Enter City Name"
@@ -91,6 +98,7 @@ function Search({ onSearchChange, setPanelWidth }) {
           value={searchValue}
           onChange={(e) => handleOnChange(e.target.value)}
           onKeyDown={handleKeyDown}
+          onBlur={handleBlur}
         />
         <div className="searchIcon">
           {location.length === 0 ? (
@@ -106,7 +114,10 @@ function Search({ onSearchChange, setPanelWidth }) {
         </div>
       </div>
       {location.length > 0 && searchValue !== "" && (
-        <div className={`dataResults ${(searchbarWidth != 50) && 'triggered' }`}style={{ width: `${searchbarWidth}%` }}>
+        <div
+          className={`dataResults ${searchbarWidth != 50 && "triggered"}`}
+          style={{ width: `${searchbarWidth}%` }}
+        >
           {location.slice(0, 5).map((value, key) => (
             <a
               key={key}

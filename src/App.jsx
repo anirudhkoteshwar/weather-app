@@ -2,6 +2,7 @@ import "./App.css";
 import Search from "./components/search/search";
 import CurrentWeather from "./components/currentWeather/currentWeather";
 import CurrentWeatherDetails from "./components/currentWeather/currentWeatherDetails";
+import ForecastWeather from "./components/forecastWeather/forecastWeather";
 import { useState , useEffect } from "react";
 import {
   WEATHER_API_URL,
@@ -65,6 +66,7 @@ function App() {
       }>
         <Search onSearchChange={handleOnSearchChange} setPanelWidth={setPanelWidth} />
         {currentWeather && <CurrentWeatherDetails currentWeather={currentWeather}/>}
+        {forecast && <ForecastWeather forecastWeather={forecast} className='forecastWeather'/>}
       </div>
     </div>
   );
