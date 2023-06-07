@@ -3,6 +3,13 @@
   justify-content: center;
   width: 100%;
   height: 100%;
+  animation: animateFadeIn 400ms;
+  opacity: 0;
+  transition: opacity 400ms;
+}
+
+.panelWrapper.loaded {
+  opacity: 1;
 }
 
 .leftPanel {
