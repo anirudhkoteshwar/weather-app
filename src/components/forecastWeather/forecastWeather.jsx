@@ -21,20 +21,20 @@ const ForecastWeather = ({ forecastWeather }) => {
     <>
       {forecastWeather.list.slice(0, 4).map((item, idx) => {
         return (
-          <div className="future-forecast" key={idx}>
-            <div className="daily-item">
+          <div className="forecastItemWrapper" key={idx}>
+            <div className="forecastItem">
               <img
                 alt="weather"
-                className="icon-small"
+                className="weatherIconSmall"
                 src={`icons/${item.weather[0].icon}.svg`}
               />
-              <p className="min-max">
+              <p className="minMax">
                 {Math.round(item.main.temp_max)}°C /{" "}
                 {Math.round(item.main.temp_min)}°C
               </p>
-              <label className="day">{forecastDays[idx]}</label>
+              <label className="dayName">{forecastDays[idx]}</label>
             </div>
-            <hr className="rounded" id={idx} />
+            <hr className="roundedSeparator" id={idx} />
           </div>
         );
       })}

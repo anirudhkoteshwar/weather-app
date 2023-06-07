@@ -98,7 +98,6 @@ function Search({ onSearchChange, setPanelWidth }) {
           value={searchValue}
           onChange={(e) => handleOnChange(e.target.value)}
           onKeyDown={handleKeyDown}
-          onBlur={handleBlur}
         />
         <div className="searchIcon">
           {location.length === 0 ? (
@@ -117,6 +116,7 @@ function Search({ onSearchChange, setPanelWidth }) {
         <div
           className={`dataResults ${searchbarWidth != 50 && "triggered"}`}
           style={{ width: `${searchbarWidth}%` }}
+          onBlur={handleBlur}
         >
           {location.slice(0, 5).map((value, key) => (
             <a

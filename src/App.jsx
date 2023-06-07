@@ -3,7 +3,7 @@ import Search from "./components/search/search";
 import CurrentWeather from "./components/currentWeather/currentWeather";
 import CurrentWeatherDetails from "./components/currentWeather/currentWeatherDetails";
 import ForecastWeather from "./components/forecastWeather/forecastWeather";
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   WEATHER_API_URL,
   WEATHER_API_KEY,
@@ -22,7 +22,7 @@ function App() {
     }
   };
 
- useEffect(() => {
+  useEffect(() => {
     if (selectedCity) {
       const [lat, lon] = selectedCity.value.split(" ");
 
@@ -56,17 +56,34 @@ function App() {
 
   return (
     <div className="panelWrapper">
-      <div className="leftPanel" style={
-        {width: `${panelWidth}%`}
-      }>
-        {currentWeather && <CurrentWeather currentWeather={currentWeather}/>}
+      <div className="leftPanel" style={{ width: `${panelWidth}%` }}>
+        {currentWeather && <CurrentWeather currentWeather={currentWeather} />}
       </div>
-      <div className="rightPanel" style={
-        {width: `${100 - panelWidth}%`}
-      }>
-        <Search onSearchChange={handleOnSearchChange} setPanelWidth={setPanelWidth} />
-        {currentWeather && <CurrentWeatherDetails currentWeather={currentWeather}/>}
-        {forecast && <ForecastWeather forecastWeather={forecast} className='forecastWeather'/>}
+
+      <div className="rightPanel" style={{ width: `${100 - panelWidth}%` }}>
+        <Search
+          onSearchChange={handleOnSearchChange}
+          setPanelWidth={setPanelWidth}
+        />
+        <div className="weatherDetails">
+        {currentWeather && (
+          <hr className="roundedSeparator" id="searchDetailsDivider" />
+        )}
+
+        {currentWeather && (
+          <CurrentWeatherDetails currentWeather={currentWeather} />
+        )}
+
+        {forecast && (
+          <hr className="roundedSeparator" id="detailsForecastDivider" />
+        )}
+
+        {forecast && (
+          <div className="forecastWeatherWrapper">
+            <ForecastWeather forecastWeather={forecast} />
+          </div>
+        )}
+        </div>
       </div>
     </div>
   );

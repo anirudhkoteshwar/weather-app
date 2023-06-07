@@ -15,6 +15,7 @@
   -webkit-backdrop-filter: blur(13.5px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   transition: width 400ms ease;
+  transition: top 300ms ease;
 }
 
 .searchIcon img {
@@ -76,6 +77,8 @@
   font-weight: 600;
   font-family: "Roboto", sans-serif;
   animation: animateFadeIn 400ms;
+  transition: top 300ms ease;
+  z-index: 9999 !important;
 }
 
 .dataItem {
@@ -101,6 +104,7 @@
   position: absolute;
   top: 1.8rem;
 }
+
 .dataResults.triggered {
   position: absolute;
   top: 5rem;

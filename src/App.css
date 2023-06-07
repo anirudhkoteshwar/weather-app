@@ -24,10 +24,28 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.rightPanel>.details,.rightPanel>.forecastWeather {
+.weatherDetails {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-  gap: 20px;
+  max-height: 95%;
+  width: 100%;
+  position: relative;
+  top: 5%;
+}
+
+.forecastWeatherWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.roundedSeparator {
+  width: 90%;
+  height: 1px;
+  background-color: #ffffff; 
+  border-radius: 30%;
+}
+
+#detailsForecastDivider {
+  bottom: -10%;
 }
