@@ -2,7 +2,8 @@
   display: flex;
   justify-content: space-between;
   color: #ffffff;
-  margin: 0 10px;
+  margin: 0.5em 1.8em;
+  animation: animateFadeIn 400ms;
 }
 
 .weatherIconSmall {
@@ -21,6 +22,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: end;
+    max-width: 5%;
 }
 
 hr#\33.roundedSeparator {

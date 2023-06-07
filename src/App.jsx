@@ -55,7 +55,16 @@ function App() {
   console.log(backgroundImageID);
 
   return (
-    <div className="panelWrapper">
+    <div
+      className="panelWrapper"
+      style={{
+        backgroundImage: `url(/backgrounds/${backgroundImageID})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        position: "center",
+        zIndex: "9999 !important",
+      }}
+    >
       <div className="leftPanel" style={{ width: `${panelWidth}%` }}>
         {currentWeather && <CurrentWeather currentWeather={currentWeather} />}
       </div>
@@ -66,23 +75,23 @@ function App() {
           setPanelWidth={setPanelWidth}
         />
         <div className="weatherDetails">
-        {currentWeather && (
-          <hr className="roundedSeparator" id="searchDetailsDivider" />
-        )}
+          {currentWeather && (
+            <hr className="roundedSeparator" id="searchDetailsDivider" />
+          )}
 
-        {currentWeather && (
-          <CurrentWeatherDetails currentWeather={currentWeather} />
-        )}
+          {currentWeather && (
+            <CurrentWeatherDetails currentWeather={currentWeather} />
+          )}
 
-        {forecast && (
-          <hr className="roundedSeparator" id="detailsForecastDivider" />
-        )}
+          {forecast && (
+            <hr className="roundedSeparator" id="detailsForecastDivider" />
+          )}
 
-        {forecast && (
-          <div className="forecastWeatherWrapper">
-            <ForecastWeather forecastWeather={forecast} />
-          </div>
-        )}
+          {forecast && (
+            <div className="forecastWeatherWrapper">
+              <ForecastWeather forecastWeather={forecast} />
+            </div>
+          )}
         </div>
       </div>
     </div>

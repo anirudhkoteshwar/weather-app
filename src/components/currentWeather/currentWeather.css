@@ -5,7 +5,7 @@
   margin: 27em 2em 2em 2em;
   padding: 0.5em;
   background: rgba(0, 0, 0, 0.45);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   backdrop-filter: blur(11px);
   -webkit-backdrop-filter: blur(11px);
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -34,9 +34,9 @@
 .city {
   font-weight: 600;
   font-size: 28px;
-  line-height: 1;
+  line-height: 1.2;
   margin: 0;
-  letter-spacing: 1px;
+  letter-spacing: 1.1px;
   padding-right: 2em;
   padding-bottom: 0.1em;
   animation: animateFadeIn 400ms;
