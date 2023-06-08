@@ -21,7 +21,7 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: Build project
-        run: vite build
+        run: npm run build
         env: 
           VITE_GEODB_API_KEY: ${{ secrets.VITE_GEODB_API_KEY }}
           VITE_WEATHER_KEY: ${{ secrets.VITE_WEATHER_KEY }}
