@@ -21,7 +21,10 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: Build project
-        run: npm run build
+        run: vite build
+        env: 
+          VITE_GEODB_API_KEY: ${{ secrets.VITE_GEODB_API_KEY }}
+          VITE_WEATHER_KEY: ${{ secrets.VITE_WEATHER_KEY }}
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v3
