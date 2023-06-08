@@ -14,7 +14,6 @@ function App() {
   const [forecast, setForecast] = useState(null);
   const [selectedCity, setSelectedCity] = useState(null);
   const [panelWidth, setPanelWidth] = useState(0);
-  const [isLoaded, setIsLoaded] = useState(false);
 
   const handleOnSearchChange = (searchData) => {
     const city = searchData[0];
@@ -55,18 +54,9 @@ function App() {
     : "unknown.jpg";
   console.log(backgroundImageID);
 
-  useEffect(() => {
-    const image = new Image();
-    image.src = `/backgrounds/${backgroundImageID}`;
-    image.onload = () => {
-      setIsLoaded(true);
-    };
-  }, [backgroundImageID]);
-
-  
   return (
     <div
-      className={`panelWrapper ${isLoaded ? 'loaded' : ''}`}
+      className="panelWrapper"
       style={{
         backgroundImage: `url(/backgrounds/${backgroundImageID})`,
         backgroundRepeat: "no-repeat",
