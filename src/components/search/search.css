@@ -102,10 +102,10 @@
 
 .searchBar.triggered {
   position: absolute;
-  top: 1.8rem;
+  top: 1.2rem;
 }
 
 .dataResults.triggered {
   position: absolute;
-  top: 5rem;
+  top: 4.5rem;
 }

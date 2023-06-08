@@ -46,19 +46,15 @@ function App() {
     }
   }, [selectedCity]);
 
-  console.log(currentWeather);
-  console.log(forecast);
-
   const backgroundImageID = currentWeather?.weather?.[0]?.icon
     ? `${currentWeather.weather[0].icon}.jpg`
     : "unknown.jpg";
-  console.log(backgroundImageID);
 
   return (
     <div
       className="panelWrapper"
       style={{
-        backgroundImage: `url(/backgrounds/${backgroundImageID})`,
+        backgroundImage: `url(./backgrounds/${backgroundImageID})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         position: "center",

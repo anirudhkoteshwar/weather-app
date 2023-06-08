@@ -16,7 +16,6 @@ function Search({ onSearchChange, setPanelWidth }) {
         GEODB_OPTIONS
       );
       const responseJSON = await response.json();
-      console.log(responseJSON);
       const formattedData = formatData(responseJSON);
       setLocation([]);
       setLocation(formattedData);
