@@ -1,5 +1,5 @@
 .weatherPane {
-  width: 30em;
+  width: 60%;
   padding: 2em;
   color: #ffffff;
   margin: 27em 2em 2em 2em;
@@ -40,6 +40,7 @@
   padding-right: 2em;
   padding-bottom: 0.1em;
   animation: animateFadeIn 400ms;
+  text-shadow: #ffffff86 1px 0 10px;
 }
 
 .weather-description {
